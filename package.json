@@ -1,0 +1,33 @@
+{
+  "name": "triangle",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anduinmooney/triangle_jasmine.git"
+  },
+  "author": "Anduin Mooney",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/anduinmooney/triangle_jasmine/issues"
+  },
+  "homepage": "https://github.com/anduinmooney/triangle_jasmine#readme",
+  "devDependencies": {
+    "bower-files": "^4.0.0",
+    "browser-sync": "^2.23.6",
+    "browserify": "^16.0.0",
+    "del": "^3.0.0",
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-jshint": "^2.1.0",
+    "gulp-uglify": "^3.0.0",
+    "gulp-util": "^3.0.8",
+    "jshint": "^2.9.5",
+    "vinyl-source-stream": "^2.0.0"
+  },
+  "dependencies": {},
+  "description": ""
+}

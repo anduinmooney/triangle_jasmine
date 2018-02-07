@@ -1,0 +1,22 @@
+{
+  "name": "triangle",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "Anduin Mooney"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/anduinmooney/triangle",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.3.1",
+    "bootstrap": "^4.0.0",
+    "moment": "^2.20.1"
+  }
+}
