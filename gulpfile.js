@@ -1,6 +1,6 @@
 var del = require('del');
 var utilities = require('gulp-util');
-var buildProduction = utilities.env.production;
+var babelify = require("babelify");
 var gulp = require('gulp');
 var uglify = require('gulp-uglify');
 var browserify = require('browserify');
@@ -8,6 +8,7 @@ var source = require('vinyl-source-stream');
 var concat = require('gulp-concat');
 var jshint = require('gulp-jshint');
 var browserSync = require('browser-sync').create();
+var buildProduction = utilities.env.production;
 var lib = require('bower-files')({
   "overrides":{
     "bootstrap" : {
@@ -38,12 +39,15 @@ gulp.task('concatInterface', function() {
     .pipe(gulp.dest('./tmp'));
 });
 
-// gulp.task('jsBrowserify', ['concatInterface'], function() {
-//   return browserify({ entries: ['./tmp/allConcat.js'] })
-//     .bundle()
-//     .pipe(source('app.js'))
-//     .pipe(gulp.dest('./build/js'));
-// });
+gulp.task('jsBrowserify', ['concatInterface'], function() {
+  return browserify({ entries: ['./tmp/allConcat.js']})
+    .transform(babelify.configure({
+      presets: ["es2015"]
+    }))
+    .bundle()
+    .pipe(source('app.js'))
+    .pipe(gulp.dest('./build/js'))
+});
 
 gulp.task("minifyScripts", ["jsBrowserify"], function(){
   return gulp.src("./build/js/app.js")
@@ -133,5 +137,6 @@ gulp.task('bowerBuild', ['bower'], function(){
 });
 
 gulp.task('bower', ['bowerJS', 'bowerCSS']);
+
 
 //more dependencies will be added here.
